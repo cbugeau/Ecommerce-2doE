@@ -1,23 +1,25 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import HomePage from "./pages/HomePage";
 import ContactPage from "./pages/ContactPage";
+import NavbarC from "./components/Navbar/NavbarC";
+import AdminHomePage from "./pages/AdminHomePage";
 import Footer from "./components/footer/Footer";
-import NavbarC from "./components/navbar/NavbarC";
-import DetalleProducto from "./pages/DetalleProducto";
+
 
 const App = () => {
   return (
-    <>
-      <Router>
-        <NavbarC />
-        <Routes>
-          <Route path="/detalle-producto/:id" element={<DetalleProducto />} />
-          <Route path="/" element={<HomePage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
-        <Footer />
-      </Router>
-    </>
+    <Router>
+      <NavbarC />
+      <Routes>
+        {/* Rutas Publicas */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/contact" element={<ContactPage />} />
+
+        {/* Rutas a Proteger/Protegidas */}
+        <Route path="/admin" element={<AdminHomePage />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 };
 
