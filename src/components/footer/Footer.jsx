@@ -1,11 +1,12 @@
 import { Container } from "react-bootstrap";
-import "../Footer/Footer.css";
+import "./Footer.css";
+
 const Footer = () => {
   return (
     <>
-      <footer className="bg-custom text-white text-center py-3 fixed-bottom">
-        <Container>Footer</Container>
-      </footer>
+      {/* <footer className="bg-footer text-white text-center py-3 mt-auto"> */}
+      {/* <Container>Footer</Container> */}
+      {/* </footer> */}
     </>
   );
 };

@@ -8,7 +8,7 @@ const SidebarC = () => {
 
   return (
     <>
-      <div className="d-flex">
+      <div className="d-flex bg-custom">
         {/* Botón para abrir el sidebar en pantallas pequeñas */}
         <Button
           variant="dark"
@@ -23,9 +23,7 @@ const SidebarC = () => {
           className={`${
             show ? "d-block" : "d-none"
           } d-md-block position-fixed  text-white p-3 vh-100 bg-custom`}
-          style={{
-            
-          }}
+          style={{}}
         >
           <Nav className="flex-column">
             <Nav.Link href="/admin/dashboard" className="text-light">

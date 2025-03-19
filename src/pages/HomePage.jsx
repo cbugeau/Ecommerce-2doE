@@ -1,10 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap";
-<<<<<<< HEAD
-import CardC from "../components/Card/CardC";
-=======
 import CardC from "../components/card/CardC";
 import { useEffect, useState } from "react";
->>>>>>> addf98f86921fd8cc61d0bbf462d5b0875038c2e
 
 const HomePage = () => {
   const [productos, setProductos] = useState([]);
