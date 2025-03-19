@@ -1,5 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap";
-import CardC from "../components/card/CardC";
+import CardC from "../components/Card/CardC";
 
 const HomePage = () => {
   return (
