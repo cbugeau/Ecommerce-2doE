@@ -51,7 +51,7 @@ const FormC = ({ idPage }) => {
               </Form.Group>
             </>
           }
-          <Button variant="primary" type="submit" > </Button>
+          <Button variant="primary" type="submit" >Iniciar Sesion</Button>
         </Form>
       </Container>
     </>
