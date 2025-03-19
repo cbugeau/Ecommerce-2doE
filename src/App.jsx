@@ -5,6 +5,7 @@ import NavbarC from "./components/Navbar/NavbarC";
 import AdminHomePage from "./pages/AdminHomePage";
 import Footer from "./components/footer/Footer";
 
+
 const App = () => {
   return (
     <Router>
