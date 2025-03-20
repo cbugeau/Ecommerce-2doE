@@ -4,7 +4,7 @@ import ContactPage from "./pages/ContactPage";
 import NavbarC from "./components/Navbar/NavbarC";
 import AdminHomePage from "./pages/AdminHomePage";
 import Footer from "./components/footer/Footer";
-
+import LoginPage from "./pages/LoginPage";
 
 const App = () => {
   return (
@@ -17,6 +17,7 @@ const App = () => {
 
         {/* Rutas a Proteger/Protegidas */}
         <Route path="/admin" element={<AdminHomePage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
       <Footer />
     </Router>

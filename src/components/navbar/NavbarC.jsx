@@ -24,7 +24,7 @@ const NavbarC = () => {
               <Nav.Link href="/contact">Contacto</Nav.Link>
             </Nav>
             <Nav className="ms-auto">
-              <Nav.Link href="#home">Iniciar Sesion</Nav.Link>
+              <Nav.Link href="/login">Iniciar Sesion</Nav.Link>
               <Nav.Link href="#link">Registrarse</Nav.Link>
             </Nav>
           </Navbar.Collapse>
