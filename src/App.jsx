@@ -1,24 +1,26 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import HomePage from "./pages/HomePage";
 import ContactPage from "./pages/ContactPage";
+import NavbarC from "./components/Navbar/NavbarC";
+import AdminHomePage from "./pages/AdminHomePage";
 import Footer from "./components/footer/Footer";
-import NavbarC from "./components/navbar/NavbarC";
 import LoginPage from "./pages/LoginPage";
-
 
 const App = () => {
   return (
-    <>
-      <Router>
-        <NavbarC />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/login" element={<LoginPage />} />
-        </Routes>
-        <Footer />
-      </Router>
-    </>
+    <Router>
+      <NavbarC />
+      <Routes>
+        {/* Rutas Publicas */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/contact" element={<ContactPage />} />
+
+        {/* Rutas a Proteger/Protegidas */}
+        <Route path="/admin" element={<AdminHomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 };
 
