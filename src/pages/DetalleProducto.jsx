@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Button, Col, Container, Row, Modal } from "react-bootstrap";
-import { useParams } from "react-router-dom";
 import { FaWhatsapp, FaInstagram, FaShareAlt } from "react-icons/fa";
 import "../components/card/CardC.css";
+import { useParams } from "react-router";
 
 const DetalleProducto = () => {
   const { id } = useParams();

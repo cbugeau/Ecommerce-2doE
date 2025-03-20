@@ -5,6 +5,7 @@ import NavbarC from "./components/Navbar/NavbarC";
 import AdminHomePage from "./pages/AdminHomePage";
 import Footer from "./components/footer/Footer";
 import LoginPage from "./pages/LoginPage";
+import DetalleProducto from "./pages/DetalleProducto";
 
 const App = () => {
   return (
@@ -14,7 +15,7 @@ const App = () => {
         {/* Rutas Publicas */}
         <Route path="/" element={<HomePage />} />
         <Route path="/contact" element={<ContactPage />} />
-
+        <Route path="/detalle-producto/:id" element={<DetalleProducto />} />;
         {/* Rutas a Proteger/Protegidas */}
         <Route path="/admin" element={<AdminHomePage />} />
         <Route path="/login" element={<LoginPage />} />
