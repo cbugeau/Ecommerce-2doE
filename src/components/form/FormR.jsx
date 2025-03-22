@@ -23,7 +23,6 @@ const FormR = () => {
     setFormRegister({ ...formRegister, [ev.target.name]: value })
   }
 
-
   const handleClickRegisterForm = (ev) => {
     ev.preventDefault()
     const usuarioLs = JSON.parse(localStorage.getItem('usuarios')) || []
@@ -39,16 +38,8 @@ const FormR = () => {
 
     setErrores(nuevosErrores)
 
-    console.log("antes a Grabar LS")
-    console.log("Nombre: ", formRegister.nombreUsuario)
-    console.log("Nombre: ", formRegister.email)
-    console.log("Nombre: ", formRegister.contrasenia)
-    console.log("Nombre: ", formRegister.repContrasenia)
-    console.log("Nombre: ", formRegister.checkForm)
-
     if (formRegister.nombreUsuario && formRegister.email && formRegister.contrasenia && formRegister.repContrasenia && formRegister.checkForm) {
       if (formRegister.contrasenia === formRegister.repContrasenia) {
-        console.log("entro a Grabar LS")
         const nuevoUsuario = {
           id: usuarioLs[usuarioLs.length - 1]?.id + 1 || 1,
           nombreUsuario: formRegister.nombreUsuario,
@@ -69,11 +60,15 @@ const FormR = () => {
           repContrasenia: '',
           checkForm: false
         })
+        alert("El usuario fue dado de alta correctamente.");
+        
       } else {
         alert('Las contraseñas no son iguales')
       }
-    }
 
+    } else {
+      alert("Falta completar algun campo del Formulario");
+    }
 
   }
 

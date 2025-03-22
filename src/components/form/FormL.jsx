@@ -48,11 +48,11 @@ const FormL = () => {
       sessionStorage.setItem('usuarioLogueado', JSON.stringify(usuarioExiste))
       if (usuarioExiste.rol === 'usuario') {
         setTimeout(() => {
-          navigate('/user')
+          navigate('/')
         }, 1000);
       } else {
         setTimeout(() => {
-          navigate('/admin')
+          navigate('/login')
         }, 1000);
       }
     } else {
