@@ -1,0 +1,53 @@
+/* cssacerca de nosotros */
+
+.sobre-nosotros-container {
+  font-family: "Raleway", sans-serif;
+  color: #1e1e1e;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1d2533;
+}
+
+.description {
+  font-size: 1.2rem;
+  color: #112136;
+  max-width: 800px;
+  margin: auto;
+}
+
+.blockquote {
+  font-weight: bold;
+  font-style: italic;
+  color: #ee6c4d;
+  margin-top: 20px;
+}
+
+.team-card {
+  background-color: #e0fbfc;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.team-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 3px solid #3d5a80;
+  padding: 5px;
+}
+.nombre-img-card {
+  font-weight: bold;
+}
+
+.avatar-placeholder {
+  width: 120px;
+  height: 120px;
+  background-color: #98c1d9;
+  border-radius: 50%;
+  margin: auto;
+}
