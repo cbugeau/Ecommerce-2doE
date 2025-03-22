@@ -1,0 +1,57 @@
+/* Css page DetalleProducto */
+/* body {
+  font-family: "Open Sans", sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+} */
+
+.card-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.titulo-producto {
+  font-family: "Raleway", sans-serif;
+  color: var(--color-primario);
+}
+
+.categoria {
+  font-family: "Roboto", sans-serif;
+  color: var(--color-secundario);
+}
+
+.precio {
+  color: var(--color-complementario);
+  font-weight: bold;
+}
+
+.stock {
+  color: var(--color-terciario);
+}
+
+.agotado {
+  color: red;
+}
+
+.img-principal {
+  transition: transform 0.3s;
+}
+
+.img-principal:hover {
+  transform: scale(1.1);
+}
+
+.miniatura {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.miniatura:hover {
+  transform: scale(1.2);
+}
+
+.botones button {
+  font-weight: bold;
+}

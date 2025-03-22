@@ -1,4 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap");
+
+:root {
+  --color-primario: #293241;
+  --color-secundario: #3d5a80;
+  --color-terciario: #98c1d9;
+  --color-fondo: #e0fbfc;
+  --color-complementario: #ee6c4d;
+  --color-texto: #1e1e1e;
+}
+
 body {
-  background-color: #293241;
-  color: white;
+  background-color: var(--color-fondo);
+  /*   color: white; */
 }
