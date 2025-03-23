@@ -1,7 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import CardC from "../components/card/CardC";
 import { useEffect, useState } from "react";
-import SidebarFilters from "../components/sidebarFilters/SidebarFilters";
+import SidebarFilters from "../components/SidebarFilters/SidebarFilters";
 //import { fetchApiDummy } from "../helpers/useApi";
 
 const HomePage = () => {
