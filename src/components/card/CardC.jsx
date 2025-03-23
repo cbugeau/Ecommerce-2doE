@@ -1,9 +1,9 @@
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import "./CardC.css";
 import { CardText } from "react-bootstrap";
+import { Link } from "react-router";
 
-const CardC = ({ urlImagen, titulo, descripcion, precio }) => {
+const CardC = ({ idProd, urlImagen, titulo, descripcion, precio }) => {
   return (
     <>
       <Card className="mt-5 mb-5">
@@ -12,7 +12,9 @@ const CardC = ({ urlImagen, titulo, descripcion, precio }) => {
           <Card.Title className="text-truncate">{titulo}</Card.Title>
           <Card.Text className="text-truncate">{descripcion}</Card.Text>
           <CardText>{precio}</CardText>
-          <Button variant="primary">Añadir al carrito</Button>
+          <Link to={`/detalle-producto/${idProd}`} className="btn btn-primary">
+            Ver Mas
+          </Link>
         </Card.Body>
       </Card>
     </>
