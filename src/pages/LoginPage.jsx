@@ -1,11 +1,10 @@
-import FormC from "../components/form/FormC"
-/*import { useChangeTitle } from "../helpers/useChangeNameTitle"*/
+import FormL from "../components/form/FormL"
 
 
 const LoginPage = () => {
-  /*useChangeTitle('login')*/
+
   return (
-    <FormC />
+    <FormL />
   )
 }
 

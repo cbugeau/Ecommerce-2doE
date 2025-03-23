@@ -5,10 +5,12 @@ import NavbarC from "./components/Navbar/NavbarC";
 import AdminHomePage from "./pages/AdminHomePage";
 import Footer from "./components/footer/Footer";
 import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
 import DetalleProducto from "./pages/DetalleProducto";
 import AcercaDeNosotros from "./pages/AcercaDeNosotros";
 
 const App = () => {
+
   return (
     <Router>
       <NavbarC />
@@ -21,6 +23,7 @@ const App = () => {
         {/* Rutas a Proteger/Protegidas */}
         <Route path="/admin" element={<AdminHomePage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
       </Routes>
       <Footer />
     </Router>
