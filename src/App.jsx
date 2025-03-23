@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import HomePage from "./pages/HomePage";
 import ContactPage from "./pages/ContactPage";
-import NavbarC from "./components/Navbar/NavbarC";
+import NavbarC from "./components/navbar/NavbarC";
 import AdminHomePage from "./pages/AdminHomePage";
 import Footer from "./components/footer/Footer";
 import LoginPage from "./pages/LoginPage";
