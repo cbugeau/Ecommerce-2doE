@@ -1,3 +1,30 @@
 .bg-footer {
   background-color: #98c1d9;
 }
+
+footer {
+  h6 {
+    font-family: "Raleway", sans-serif;
+  }
+  ul {
+    li {
+      font-family: "Roboto", sans-serif;
+      margin-top: 5px;
+      font-size: 14px;
+      :hover {
+        color: var(--color-fondo);
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+    .icons-footer a {
+      margin-right: 10px; /* Ajusta el espacio entre los iconos */
+    }
+  }
+}
+
+.copyright-text {
+  font-size: 17px;
+}
