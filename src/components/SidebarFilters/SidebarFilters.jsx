@@ -3,7 +3,7 @@ import "./SidebarFilters.css";
 
 const SidebarFilters = ({ buscar, setBuscar }) => {
   return (
-    <div className="mt-5 search">
+    <div className="mb-5 search">
       <div className="mb-3">
         <Form.Control
           type="text"
