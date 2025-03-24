@@ -27,22 +27,22 @@ const Footer = () => {
             <h5>Información</h5>
             <ul className="list-unstyled">
               <li>
-                <Link to="">Quiénes Somos</Link>
+                <Link to="*">Quiénes Somos</Link>
               </li>
               <li>
-                <Link to="">Preguntas Frecuentes</Link>
+                <Link to="*">Preguntas Frecuentes</Link>
               </li>
               <li>
-                <Link to="">Envíos y devoluciones</Link>
+                <Link to="*">Envíos y devoluciones</Link>
               </li>
               <li>
-                <Link to="">Guía de talles</Link>
+                <Link to="*">Guía de talles</Link>
               </li>
               <li>
-                <Link to="">Cómo comprar</Link>
+                <Link to="*">Cómo comprar</Link>
               </li>
               <li>
-                <Link to="">Promociones vigentes</Link>
+                <Link to="*">Promociones vigentes</Link>
               </li>
             </ul>
           </Col>
@@ -55,16 +55,16 @@ const Footer = () => {
             <h5>Legales</h5>
             <ul className="list-unstyled">
               <li>
-                <Link to="">Términos y Condiciones</Link>
+                <Link to="*">Términos y Condiciones</Link>
               </li>
               <li>
-                <Link to="">Política de Privacidad</Link>
+                <Link to="*">Política de Privacidad</Link>
               </li>
               <li>
-                <Link to="">Cambios y Devoluciones</Link>
+                <Link to="*">Cambios y Devoluciones</Link>
               </li>
               <li>
-                <Link to="">Defensa del Consumidor</Link>
+                <Link to="*">Defensa del Consumidor</Link>
               </li>
             </ul>
           </Col>
@@ -77,7 +77,11 @@ const Footer = () => {
             <h5>Contacto</h5>
             <ul className="list-unstyled">
               <li>
-                <a href="https://maps.app.goo.gl/2A54rtqf6GU1VzMe6">
+                <a
+                  href="https://maps.app.goo.gl/2A54rtqf6GU1VzMe6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   General Paz 576, Piso 9, Oficina 2 San Miguel de Tucumán
                 </a>
               </li>
@@ -95,19 +99,19 @@ const Footer = () => {
             <h5>Métodos de pago</h5>
             <ul className="list-unstyled">
               <li className="icons-footer">
-                <Link to="">
+                <Link to="*">
                   <FaCcVisa size={30} color="black" />
                 </Link>
-                <Link to="">
+                <Link to="*">
                   <FaCcMastercard size={30} color="black" />
                 </Link>
-                <Link to="">
+                <Link to="*">
                   <FaCcAmex size={30} color="black" />
                 </Link>
-                <Link to="">
+                <Link to="*">
                   <FaCcPaypal size={30} color="black" />
                 </Link>
-                <Link to="">
+                <Link to="*">
                   <SiMercadopago size={35} color="black" />
                 </Link>
               </li>
@@ -115,32 +119,16 @@ const Footer = () => {
             <h5>Síguenos</h5>
             <ul className="list-unstyled">
               <li className="pt-1 icons-footer">
-                <Link
-                  href="https://www.facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Link to="*" target="_blank" rel="noopener noreferrer">
                   <FaFacebook size={26} color="black" />
                 </Link>
-                <Link
-                  href="https://www.instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Link to="*" target="_blank" rel="noopener noreferrer">
                   <FaInstagram size={26} color="black" />
                 </Link>
-                <Link
-                  href="https://www.twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Link to="*" target="_blank" rel="noopener noreferrer">
                   <FaTwitter size={26} color="black" />
                 </Link>
-                <Link
-                  href="https://www.linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Link to="*" target="_blank" rel="noopener noreferrer">
                   <FaLinkedin size={26} color="black" />
                 </Link>
               </li>
