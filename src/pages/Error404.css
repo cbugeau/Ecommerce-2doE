@@ -1,0 +1,55 @@
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.error-image {
+  max-width: 40%;
+  height: auto;
+}
+
+.error-title {
+  font-size: 2rem;
+  margin-top: 20px;
+}
+
+.error-message {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .error-container {
+    height: 100vh;
+    padding: 30px;
+  }
+
+  .error-image {
+    max-width: 60%;
+  }
+
+  .error-title {
+    font-size: 1.5rem;
+  }
+
+  .error-message {
+    font-size: 1rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
