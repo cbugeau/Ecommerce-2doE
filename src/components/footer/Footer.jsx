@@ -30,13 +30,13 @@ const Footer = () => {
                 <Link to="">Quiénes Somos</Link>
               </li>
               <li>
-                <Link to="">Preguntas Frecuentes (FAQ)</Link>
+                <Link to="">Preguntas Frecuentes</Link>
               </li>
               <li>
                 <Link to="">Envíos y devoluciones</Link>
               </li>
               <li>
-                <Link to="">Guía de talles (si aplica)</Link>
+                <Link to="">Guía de talles</Link>
               </li>
               <li>
                 <Link to="">Cómo comprar</Link>
