@@ -8,14 +8,15 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import DetalleProducto from "./pages/DetalleProducto";
 import AcercaDeNosotros from "./pages/AcercaDeNosotros";
+import Error404 from "./pages/Error404";
 
 const App = () => {
-
   return (
     <Router>
       <NavbarC />
       <Routes>
         {/* Rutas Publicas */}
+        <Route path="*" element={<Error404 />} />;
         <Route path="/Acerca-De-Nosotros" element={<AcercaDeNosotros />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/contact" element={<ContactPage />} />
