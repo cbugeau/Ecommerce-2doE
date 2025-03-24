@@ -32,7 +32,7 @@ const HomePage = () => {
   );
 
   return (
-    <Container fluid>
+    <Container fluid className="my-5">
       <Row>
         <Col
           sm="12"
@@ -47,11 +47,12 @@ const HomePage = () => {
           <Row>
             {productosFiltrados.length > 0 ? (
               productosFiltrados.map((producto) => (
-                <Col key={producto.id} sm="12" md="6" lg="4" className="mb-4">
+                <Col key={producto.id} sm="12" md="6" lg="3" className="mb-4">
                   <CardC
                     idProd={producto.id}
                     urlImagen={producto.images}
                     titulo={producto.title}
+                    stock={producto.stock}
                     descripcion={producto.description}
                     precio={producto.price}
                   />

@@ -1,4 +1,40 @@
-.card img {
-  height: 40vh;
-  object-fit: contain;
+.no-decoration {
+  text-decoration: none; /* Quita la línea */
+  color: inherit; /* Usa el color del padre (el Card) */
+}
+
+.card {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+
+  .titulo-card {
+    font-family: "Raleway", sans-serif;
+    color: var(--color-primario);
+  }
+  .precio-card {
+    color: var(--color-complementario);
+    font-weight: bold;
+    font-size: 23px;
+  }
+  .img-card {
+    transition: transform 0.3s;
+  }
+  img {
+    height: 30vh;
+    object-fit: contain;
+  }
+  .stock {
+    color: var(--color-complementario);
+  }
+  /*   .btn-card {
+    background-color: var(--color-primario);
+    color: white;
+  } */
+}
+
+.img-card:hover {
+  transform: scale(1.1);
+}
+
+.card:hover .titulo-card {
+  color: var(--color-complementario);
 }
