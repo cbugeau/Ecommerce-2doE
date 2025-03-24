@@ -76,7 +76,9 @@ const FormL = () => {
             <Form.Control type="password" placeholder="Password" name='contrasenia' value={formLogin.contrasenia} onChange={handleChangeLoginForm1} />
           </Form.Group>
 
-          <Button variant="primary" type="submit" onClick={handleChangeLoginForm2}>Iniciar Sesion</Button>
+          <Form.Group className="d-flex justify-content-center" controlId="formBasicPassword1">
+            <Button variant="primary" type="submit" onClick={handleChangeLoginForm2}>Iniciar Sesion</Button>
+          </Form.Group>
         </Form>
       </Container>
     </>
