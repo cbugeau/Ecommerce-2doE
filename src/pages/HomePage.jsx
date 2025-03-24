@@ -8,6 +8,7 @@ import CarouselC from "../components/carousel/CarouselC";
 const HomePage = () => {
   const [productos, setProductos] = useState([]);
   const [buscar, setBuscar] = useState("");
+  const [cargando, setCargando] = useState(true); // Estado de carga
 
   const obtenerProductos = async () => {
     try {
@@ -17,6 +18,8 @@ const HomePage = () => {
       setProductos(data.products || []);
     } catch (error) {
       console.log(error);
+    } finally {
+      setCargando(false); // Cambiar estado de carga cuando termina
     }
   };
 
@@ -48,7 +51,9 @@ const HomePage = () => {
 
           <Col sm="12" md="9" lg="10" className="px-3">
             <Row>
-              {productosFiltrados.length > 0 ? (
+              {cargando ? (
+                <p className="text-center mt-3">Cargando productos...</p>
+              ) : productosFiltrados.length > 0 ? (
                 productosFiltrados.map((producto) => (
                   <Col key={producto.id} sm="12" md="6" lg="3" className="mb-4">
                     <CardC
@@ -62,7 +67,7 @@ const HomePage = () => {
                   </Col>
                 ))
               ) : (
-                <p className="mt-3">No se encontraron productos.</p>
+                <p className="mt-3 text-center">No se encontraron productos.</p>
               )}
             </Row>
           </Col>
