@@ -43,7 +43,7 @@ const DetalleProducto = () => {
   };
 
   return (
-    <Container className="mt-4 card-container">
+    <Container className="my-4 card-container">
       <Row>
         <Col md="6">
           <Row>
