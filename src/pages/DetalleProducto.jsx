@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Button, Col, Container, Row, Modal } from "react-bootstrap";
 import { FaWhatsapp, FaInstagram, FaShareAlt } from "react-icons/fa";
 import "./DetalleProducto.css";
-import { useParams } from "react-router";
+import { useParams, useNavigate } from "react-router";
 
 const DetalleProducto = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [producto, setProducto] = useState(null);
   const [cargandoProducto, setCargandoProducto] = useState(true);
   const [imagenPrincipal, setImagenPrincipal] = useState("");
@@ -37,6 +38,9 @@ const DetalleProducto = () => {
       <p className="text-center mt-4 text-danger">Producto no encontrado.</p>
     );
   }
+  const handleRedirect = () => {
+    navigate("*");
+  };
 
   return (
     <Container className="mt-4 card-container">
@@ -119,10 +123,12 @@ const DetalleProducto = () => {
           </div>
 
           <div className="mt-4 botones">
-            <Button variant="dark" className="me-2">
+            <Button variant="dark" className="me-2" onClick={handleRedirect}>
               Agregar al Carrito
             </Button>
-            <Button variant="outline-secondary">Lista de Deseos</Button>
+            <Button variant="outline-secondary" onClick={handleRedirect}>
+              Lista de Deseos
+            </Button>
           </div>
         </Col>
       </Row>
