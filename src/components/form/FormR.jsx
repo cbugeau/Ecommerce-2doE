@@ -27,6 +27,7 @@ const FormR = () => {
     ev.preventDefault()
     const usuarioLs = JSON.parse(localStorage.getItem('usuarios')) || []
 
+    // Validaciones de los campos del Form
     let nuevosErrores = {}
     if (!formRegister.nombreUsuario) {
       nuevosErrores.nombreUsuario = 'El campo usuario esta vacio'
@@ -38,7 +39,13 @@ const FormR = () => {
 
     setErrores(nuevosErrores)
 
-    if (formRegister.nombreUsuario && formRegister.email && formRegister.contrasenia && formRegister.repContrasenia && formRegister.checkForm) {
+    // Mascara para campo eMail
+    const maskEmail = new RegExp(
+      /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
+    ).test(formRegister.email);
+    //console.log("Filtro email: ", maskEmail);
+
+    if (formRegister.nombreUsuario && formRegister.email && formRegister.contrasenia && formRegister.repContrasenia && formRegister.checkForm && maskEmail) {
       if (formRegister.contrasenia === formRegister.repContrasenia) {
         const nuevoUsuario = {
           id: usuarioLs[usuarioLs.length - 1]?.id + 1 || 1,
@@ -67,9 +74,12 @@ const FormR = () => {
       }
 
     } else {
-      alert("Falta completar algun campo del Formulario");
+      if (!maskEmail) {
+        alert("El campo eMail no tiene un formato válido");
+      } else {
+        alert("Falta completar algun campo del Formulario");
+      }
     }
-
   }
 
 
@@ -79,7 +89,7 @@ const FormR = () => {
       <Container className="d-flex justify-content-center my-3">
         <Form>
           <Form.Group className="mb-3" controlId="formBasicEmail1">
-            <Form.Label>Nombre de Usuario</Form.Label>
+            <Form.Label>Nombre de Usuario (*)</Form.Label>
             <Form.Control
               type="text"
               placeholder="Nombre Usuario"
@@ -91,7 +101,7 @@ const FormR = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicEmail2">
-            <Form.Label>Email del Usuario</Form.Label>
+            <Form.Label>Email del Usuario (*)</Form.Label>
             <Form.Control
               type="email"
               placeholder="Enter email"
@@ -103,7 +113,7 @@ const FormR = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword1">
-            <Form.Label>Contraseña</Form.Label>
+            <Form.Label>Contraseña (*)</Form.Label>
             <Form.Control
               type="password"
               placeholder="Password"
@@ -114,7 +124,7 @@ const FormR = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword2">
-            <Form.Label>Repetir Contraseña</Form.Label>
+            <Form.Label>Repetir Contraseña (*)</Form.Label>
             <Form.Control
               type="password"
               placeholder="Password"
