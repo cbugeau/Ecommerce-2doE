@@ -47,6 +47,9 @@ const NavbarC = () => {
                 <NavLink className="nav-link" to="*">
                   Contacto
                 </NavLink>
+                <NavLink className="nav-link" to="/user/cart">
+                  Carrito
+                </NavLink>
               </Nav>
             ) : usuarioLogueado && usuarioLogueado.rol === "admin" ? (
               <Nav className="ms-auto">
