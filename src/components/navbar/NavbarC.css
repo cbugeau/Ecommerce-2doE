@@ -1,3 +1,12 @@
 .bg-navbar {
   background-color: #98c1d9;
 }
+
+nav .nav-link {
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+  transition: transform 0.3s;
+}
+.nav-link:hover {
+  transform: scale(1.1);
+}

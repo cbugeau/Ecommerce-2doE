@@ -10,6 +10,7 @@ import DetalleProducto from "./pages/DetalleProducto";
 import AcercaDeNosotros from "./pages/AcercaDeNosotros";
 import ProductosAdminPage from "./pages/ProductosAdminPage";
 import Error404 from "./pages/Error404";
+import UserPage from "./pages/UserPage";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
         {/* Rutas a Proteger/Protegidas */}
         <Route path="/admin" element={<AdminHomePage />} />
         <Route path="/admin/productos" element={<ProductosAdminPage />} />
+        <Route path="/user" element={<UserPage />} />
       </Routes>
       <Footer />
     </Router>
