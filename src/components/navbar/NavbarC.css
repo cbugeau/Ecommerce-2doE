@@ -2,11 +2,23 @@
   background-color: #98c1d9;
 }
 
+nav {
+  height: 14vh;
+}
+
 nav .nav-link {
   font-family: "Raleway", sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   transition: transform 0.3s;
 }
 .nav-link:hover {
-  transform: scale(1.1);
+  transform: scale(1.01);
+}
+
+.navbar {
+  background: linear-gradient(
+    to bottom,
+    var(--color-fondo),
+    var(--color-terciario)
+  );
 }
