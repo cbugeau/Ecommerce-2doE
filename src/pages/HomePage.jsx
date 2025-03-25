@@ -2,8 +2,8 @@ import { Carousel, Col, Container, Row } from "react-bootstrap";
 import CardC from "../components/card/CardC";
 import { useEffect, useState } from "react";
 import SidebarFilters from "../components/SidebarFilters/SidebarFilters";
+import { fetchApiDummy } from "../helpers/useApi";
 import CarouselC from "../components/carousel/CarouselC";
-//import { fetchApiDummy } from "../helpers/useApi";
 
 const HomePage = () => {
   const [productos, setProductos] = useState([]);
@@ -12,10 +12,17 @@ const HomePage = () => {
 
   const obtenerProductos = async () => {
     try {
-      const productos = await fetch("https://dummyjson.com/products?limit=9");
-      const data = await productos.json();
-      console.log(data);
-      setProductos(data.products || []);
+      const productosLs = JSON.parse(localStorage.getItem("productos")) || [];
+
+      if (productosLs.length) {
+        setProductos(productosLs);
+      } else {
+        const res = await fetchApiDummy();
+        console.log(res);
+
+        localStorage.setItem("productos", JSON.stringify(res.products || []));
+        setProductos(res.products || []);
+      }
     } catch (error) {
       console.log(error);
     } finally {
