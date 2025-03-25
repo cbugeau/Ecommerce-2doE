@@ -11,6 +11,7 @@ import AcercaDeNosotros from "./pages/AcercaDeNosotros";
 import ProductosAdminPage from "./pages/ProductosAdminPage";
 import Error404 from "./pages/Error404";
 import UserPage from "./pages/UserPage";
+import TableProductsUser from "./components/tableProductsUser/TableProductsUser";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
         <Route path="/admin" element={<AdminHomePage />} />
         <Route path="/admin/productos" element={<ProductosAdminPage />} />
         <Route path="/user" element={<UserPage />} />
+        <Route path="/user/cart" element={<TableProductsUser />} />
       </Routes>
       <Footer />
     </Router>
