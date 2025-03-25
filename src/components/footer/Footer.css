@@ -12,7 +12,7 @@ footer {
       margin-top: 5px;
       font-size: 14px;
       :hover {
-        color: var(--color-fondo);
+        color: black;
       }
       a {
         text-decoration: none;
@@ -27,4 +27,12 @@ footer {
 
 .copyright-text {
   font-size: 17px;
+}
+
+.bg-footer {
+  background: linear-gradient(
+    to bottom,
+    var(--color-terciario),
+    var(--color-fondo)
+  );
 }
