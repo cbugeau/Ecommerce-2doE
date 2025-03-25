@@ -46,20 +46,20 @@ const ProductosAdminPage = () => {
     );
   };
 
-const handleSaveChanges = () => {
-  if (!selectedProduct || !selectedProduct.id) {
-    console.error("Error: Producto seleccionado no válido");
-    return;
-  }
+  const handleSaveChanges = () => {
+    if (!selectedProduct || !selectedProduct.id) {
+      console.error("Error: Producto seleccionado no válido");
+      return;
+    }
 
-  const updatedProducts = productos.map((p) =>
-    p.id === selectedProduct.id ? { ...p, ...selectedProduct } : p
-  );
+    const updatedProducts = productos.map((p) =>
+      p.id === selectedProduct.id ? { ...p, ...selectedProduct } : p
+    );
 
-  setProductos(updatedProducts);
-  localStorage.setItem("productos", JSON.stringify(updatedProducts));
-  setShowModal(false);
-};
+    setProductos(updatedProducts);
+    localStorage.setItem("productos", JSON.stringify(updatedProducts));
+    setShowModal(false);
+  };
 
   return (
     <Row className="g-0">
@@ -69,7 +69,10 @@ const handleSaveChanges = () => {
       </Col>
       {/* Tarjetas de productos */}
       <Col xs={12} md={9} lg={10} className="p-4">
-        <Button variant="primary" className="mb-3">
+        <Button
+          style={{ backgroundColor: "#ee6c4d", border: "none" }}
+          className="mb-3"
+        >
           <Link
             to="/agregar-producto"
             style={{ textDecoration: "none", color: "white" }}

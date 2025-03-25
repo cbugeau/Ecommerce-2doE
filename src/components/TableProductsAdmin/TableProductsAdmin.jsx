@@ -25,11 +25,11 @@ const ProductTable = ({ products, onEdit, onDelete }) => {
                 <td>${product.price}</td>
                 <td className={product.stock < 10 ? "text-danger fw-bold" : ""}>
                   {product.stock < 10
-                    ? `${product.stock} Reponer`
+                    ? `${product.stock} ⚠️ Reponer`
                     : product.stock}
                 </td>
                 <td>
-                  <Badge bg="primary">Activo</Badge>
+                  <Badge bg="success">Activo</Badge>
                 </td>
                 <td>
                   <Button
