@@ -3,20 +3,30 @@ import "./CardC.css";
 import { CardText } from "react-bootstrap";
 import { Link } from "react-router";
 
-const CardC = ({ idProd, urlImagen, titulo, descripcion, precio }) => {
+const CardC = ({ idProd, urlImagen, titulo, descripcion, stock, precio }) => {
   return (
     <>
-      <Card className="mt-5 mb-5">
-        <Card.Img variant="top" src={urlImagen[0]} />
-        <Card.Body className="text-center">
-          <Card.Title className="text-truncate">{titulo}</Card.Title>
-          <Card.Text className="text-truncate">{descripcion}</Card.Text>
-          <CardText>{precio}</CardText>
-          <Link to={`/detalle-producto/${idProd}`} className="btn btn-primary">
+      <Link to={`/detalle-producto/${idProd}`} className="no-decoration">
+        <Card className="">
+          <Card.Img variant="top" src={urlImagen[0]} className="img-card" />
+          <Card.Body className="">
+            <Card.Title className="titulo-card text-truncate">
+              {titulo}
+            </Card.Title>
+            <Card.Text className="text-truncate">{descripcion}</Card.Text>
+            <Card.Text className={stock > 0 ? "stock" : "agotado"}>
+              {stock > 0 ? `Stock disponible: ${stock}` : "Agotado"}
+            </Card.Text>
+            <CardText className="precio-card">${precio}</CardText>
+            {/*           <Link
+            to={`/detalle-producto/${idProd}`}
+            className="btn btn-primary fw-bold"
+          >
             Ver Mas
-          </Link>
-        </Card.Body>
-      </Card>
+          </Link> */}
+          </Card.Body>
+        </Card>
+      </Link>
     </>
   );
 };
