@@ -9,6 +9,7 @@ import RegisterPage from "./pages/RegisterPage";
 import DetalleProducto from "./pages/DetalleProducto";
 import AcercaDeNosotros from "./pages/AcercaDeNosotros";
 import ProductosAdminPage from "./pages/ProductosAdminPage";
+import Error404 from "./pages/Error404";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <NavbarC />
       <Routes>
         {/* Rutas Publicas */}
+        <Route path="*" element={<Error404 />} />;
         <Route path="/Acerca-De-Nosotros" element={<AcercaDeNosotros />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/contact" element={<ContactPage />} />
