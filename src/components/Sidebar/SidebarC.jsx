@@ -1,51 +1,46 @@
-import { Nav } from "react-bootstrap";
-import { Button } from "react-bootstrap";
-import { useState } from "react";
-import "./Sidebar.css";
+import React, { useState } from "react";
+import { Navbar, Nav, Button, Offcanvas } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./Sidebar.css"; // Asegúrate de que la ruta sea correcta
 
-const SidebarC = () => {
+const Sidebar = () => {
   const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <>
-      <div className="d-flex bg-custom">
-        {/* Botón para abrir el sidebar en pantallas pequeñas */}
-        <Button
-          variant="dark"
-          className="d-md-none m-2"
-          onClick={() => setShow(!show)}
-        >
-          ☰
-        </Button>
+      <div className="sidebar">
+        <Navbar bg="" expand="lg" className="">
+          <Navbar.Brand href="/admin" className="h5 mx-3">
+            Admin
+          </Navbar.Brand>
+          <Navbar.Toggle onClick={handleShow} />
+        </Navbar>
 
-        {/* Sidebar: se muestra solo si 'show' es true en pantallas pequeñas */}
-        <div
-          className={`${
-            show ? "d-block" : "d-none"
-          } d-md-block position-fixed  text-white p-3 vh-100 bg-custom`}
-          style={{}}
+        <Offcanvas
+          show={show}
+          onHide={handleClose}
+          responsive="lg"
+          className="vh-100"
         >
-          <Nav className="flex-column">
-            <Nav.Link href="/admin/dashboard" className="text-light">
-              Panel Principal
-            </Nav.Link>
-            <Nav.Link href="/admin/products" className="text-light">
-              Productos
-            </Nav.Link>
-            <Nav.Link href="/admin/orders" className="text-light">
-              Bajo Stock
-            </Nav.Link>
-            <Nav.Link href="/admin/users" className="text-light">
-              Ventas
-            </Nav.Link>
-            <Nav.Link href="/admin/customers" className="text-light">
-              Clientes
-            </Nav.Link>
-          </Nav>
-        </div>
+          <Offcanvas.Header closeButton>
+            <Offcanvas.Title>Hola Admin!</Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body className="sidebar">
+            {" "}
+            {/* Aplica la clase aquí */}
+            <Nav className="flex-column fs-5 ">
+              <Nav.Link href="/admin/productos">Productos</Nav.Link>
+              <Nav.Link href="/admin/ventas">Ventas</Nav.Link>
+              <Nav.Link href="/admin/clientes">Clientes</Nav.Link>
+            </Nav>
+          </Offcanvas.Body>
+        </Offcanvas>
       </div>
     </>
   );
 };
 
-export default SidebarC;
+export default Sidebar;
