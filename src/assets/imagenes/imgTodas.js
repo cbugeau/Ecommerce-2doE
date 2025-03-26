@@ -1,7 +1,7 @@
-import gabriel from "./Gabriel.png";
-import carlos from "./Carlos.png";
-import nadia from "./Nadia.jpeg";
-import leonardo from "./Leonardo.png";
+import gabriel from "./Gabriel.jpeg";
+import carlos from "./Carlos.jpeg";
+import nadia from "./nadia.jpg";
+import leonardo from "./leonardo.jpeg";
 
 const imagenes = {
   gabriel,
