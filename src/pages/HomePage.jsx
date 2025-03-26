@@ -1,5 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap";
-import CardC from "../components/card/CardC";
+import CardC from "../components/Card/CardC";
 import { useEffect, useState } from "react";
 import SidebarFilters from "../components/SidebarFilters/SidebarFilters";
 import { fetchApiDummy } from "../helpers/useApi";
