@@ -21,6 +21,7 @@ const App = () => {
       <NavbarC />
       <Routes>
         {/* Rutas Publicas */}
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<Error404 />} />;
         <Route path="/Acerca-De-Nosotros" element={<AcercaDeNosotros />} />
         <Route path="/" element={<HomePage />} />
