@@ -50,14 +50,14 @@ const NavbarC = () => {
               </Nav>
             ) : usuarioLogueado && usuarioLogueado.rol === "admin" ? (
               <Nav className="ms-auto">
-                <NavLink className="nav-link" to="/admin">
+                <NavLink className="nav-link" to="/">
                   Inicio
                 </NavLink>
-                <NavLink className="nav-link" to="/admin/productos">
-                  Panel Usuario
+                <NavLink className="nav-link" to="/admin">
+                  Admin
                 </NavLink>
-                <NavLink className="nav-link" to="/user">
-                  Vista Usuario
+                <NavLink className="nav-link" to="/user/contact">
+                  Contacto
                 </NavLink>
               </Nav>
             ) : (

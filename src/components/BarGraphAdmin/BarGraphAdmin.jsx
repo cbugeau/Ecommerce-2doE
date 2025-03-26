@@ -21,7 +21,7 @@ ChartJS.register(
 
 const BarGraphAdmin = ({ salesData }) => {
   const data = {
-    labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo"], // Nombres de los meses
+    labels: ["Enero", "Febrero", "Marzo", "Abril"], // Nombres de los meses
     datasets: [
       {
         label: "Ventas ($ ARS)",
