@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
+import "./TableProductsUser.css";
 import Swal from "sweetalert2";
 
 const TableProductsUser = () => {
+  const navigate = useNavigate();
   const [cantidades, setCantidades] = useState({});
   const [carrito, setCarrito] = useState([]);
 
@@ -17,8 +20,8 @@ const TableProductsUser = () => {
 
   const borrarProducto = (idProducto) => {
     Swal.fire({
-      title: "Estás seguro de que quieres eliminar a este producto?",
-      text: "Si te arrepientes después puedes cargarlo nuevamente",
+      title: "Estás seguro que deseas eliminar este producto?",
+      text: "Después podrás cargarlo al carrito nuevamente",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -42,6 +45,21 @@ const TableProductsUser = () => {
     });
   };
 
+  const comprarProductos = () => {
+    Swal.fire({
+      showCancelButton: true,
+      title: "Compra realizada con éxito!",
+      text: "Pronto te llegará un correo para ver el seguimiento de tus productos",
+      icon: "success",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Volver al inicio",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        navigate("/user");
+      }
+    });
+  };
+
   useEffect(() => {
     const carritoLs = JSON.parse(localStorage.getItem("carrito")) || [];
     setCarrito(carritoLs);
@@ -50,53 +68,93 @@ const TableProductsUser = () => {
   return (
     <>
       {carrito.length ? (
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th className="text-center">ID</th>
-              <th className="text-center">Nombre</th>
-              <th className="text-center">Precio</th>
-              <th className="text-center">Cantidad</th>
-              <th className="text-center">Total</th>
-              <th className="text-center">Eliminar</th>
-            </tr>
-          </thead>
-          <tbody>
-            {carrito.map((producto, i) => (
-              <tr key={producto.id}>
-                <td className="text-center">{i + 1}</td>
-                <td className="text-center">{producto.title}</td>
-                <td className="text-center">${producto.price}</td>
-                <td className="text-center">
-                  <input
-                    type="number"
-                    className="w-50"
-                    value={cantidades[producto.id] || 1} // Si no hay cantidad guardada, usa 1
-                    onChange={(e) => handleChangeQuantity(producto.id, e)}
-                  />
-                </td>
-                <td className="text-center">
-                  <p>
-                    $
-                    {(cantidades[producto.id]
-                      ? cantidades[producto.id] * producto.price
-                      : producto.price
-                    ).toFixed(2)}
-                  </p>
-                </td>
-
-                <td className="text-center">
-                  <Button
-                    variant="danger"
-                    onClick={() => borrarProducto(producto.id)}
-                  >
-                    Eliminar
-                  </Button>
-                </td>
+        <div>
+          <Table striped bordered hover className="my-5">
+            <thead>
+              <tr>
+                <th className="text-center d-none d-md-table-cell">ID</th>
+                <th className="text-center">Imagen</th>
+                <th className="text-center d-none d-md-table-cell">Nombre</th>
+                <th className="text-center d-none d-md-table-cell">Precio</th>
+                <th className="text-center">Cantidad</th>
+                <th className="text-center">Total</th>
+                <th className="text-center">Eliminar</th>
               </tr>
-            ))}
-          </tbody>
-        </Table>
+            </thead>
+            <tbody>
+              {carrito.map((producto, i) => (
+                <tr key={producto.id}>
+                  <td className="text-center d-none d-md-table-cell">
+                    {i + 1}
+                  </td>
+                  <td className="text-center">
+                    <img
+                      src={producto.images[0]}
+                      alt={producto.title}
+                      style={{
+                        width: "50px",
+                        height: "50px",
+                        objectFit: "cover",
+                      }}
+                    />
+                  </td>
+                  <td className="text-center d-none d-md-table-cell">
+                    {producto.title}
+                  </td>
+                  <td className="text-center d-none d-md-table-cell">
+                    ${producto.price}
+                  </td>
+                  <td className="text-center">
+                    <input
+                      type="number"
+                      className="text-center"
+                      value={cantidades[producto.id] || 1}
+                      onChange={(e) => handleChangeQuantity(producto.id, e)}
+                      min="1"
+                      max={producto.stock}
+                    />
+                  </td>
+                  <td className="text-center">
+                    <p className="precio-total">
+                      $
+                      {(cantidades[producto.id]
+                        ? cantidades[producto.id] * producto.price
+                        : producto.price
+                      ).toFixed(2)}
+                    </p>
+                  </td>
+
+                  <td className="text-center">
+                    <Button
+                      variant="danger"
+                      onClick={() => borrarProducto(producto.id)}
+                    >
+                      Eliminar
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+
+          <div className="text-center my-4">
+            <h4>
+              Total: $
+              {carrito
+                .reduce((suma, producto) => {
+                  return (
+                    suma +
+                    (cantidades[producto.id] ? cantidades[producto.id] : 1) *
+                      producto.price
+                  );
+                }, 0)
+                .toFixed(2)}
+            </h4>
+            <Button variant="success" onClick={() => comprarProductos()}>
+              Comprar
+            </Button>
+          </div>
+        </div>
       ) : (
         <h2 className="text-center my-5">
           No hay productos cargados en el carrito
