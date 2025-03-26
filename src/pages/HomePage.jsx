@@ -9,6 +9,7 @@ const HomePage = () => {
   const [productos, setProductos] = useState([]);
   const [buscar, setBuscar] = useState("");
   const [cargando, setCargando] = useState(true); // Estado de carga
+  const [filtros, setFiltros] = useState([]); // Nuevo estado para filtros
 
   const obtenerProductos = async () => {
     try {
@@ -34,13 +35,16 @@ const HomePage = () => {
     obtenerProductos();
   }, []);
 
-  const productosFiltrados = productos.filter(
-    (producto) =>
-      producto.title?.toLowerCase().includes(buscar.toLowerCase()) ||
-      "" ||
-      producto.category?.toLowerCase().includes(buscar.toLowerCase()) ||
-      ""
-  );
+  const productosFiltrados = productos.filter((producto) => {
+    const coincideBusqueda = producto.title
+      ?.toLowerCase()
+      .includes(buscar.toLowerCase());
+    const coincideCategoria =
+      filtros.length === 0 || filtros.includes(producto.category);
+    return coincideBusqueda && coincideCategoria;
+  });
+
+  const categorias = [...new Set(productos.map((p) => p.category))];
 
   return (
     <>
@@ -49,14 +53,20 @@ const HomePage = () => {
         <Row>
           <Col
             sm="12"
-            md="3"
-            lg="2"
+            md="4"
+            lg="3"
             className="d-flex justify-content-center px-3"
           >
-            <SidebarFilters buscar={buscar} setBuscar={setBuscar} />
+            <SidebarFilters
+              buscar={buscar}
+              setBuscar={setBuscar}
+              categorias={categorias}
+              filtros={filtros}
+              setFiltros={setFiltros}
+            />
           </Col>
 
-          <Col sm="12" md="9" lg="10" className="px-3">
+          <Col sm="12" md="8" lg="9" className="px-3">
             <Row>
               {cargando ? (
                 <p className="text-center mt-3">Cargando productos...</p>
