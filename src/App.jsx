@@ -28,6 +28,7 @@ const App = () => {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/detalle-producto/:id" element={<DetalleProducto />} />
         {/* Rutas a Proteger/Protegidas */}
         <Route
           path="/admin"
@@ -61,15 +62,6 @@ const App = () => {
             </PrivateRoute>
           }
         />
-        <Route
-          path="/detalle-producto/:id"
-          element={
-            <PrivateRoute rol="usuario">
-              <DetalleProducto />
-            </PrivateRoute>
-          }
-        />
-        ;
         <Route
           path="/user/cart"
           element={
