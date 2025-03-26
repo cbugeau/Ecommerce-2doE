@@ -1,16 +1,12 @@
-.bg-navbar {
-  background-color: #98c1d9;
-}
-
 nav {
   height: 14vh;
+  .nav-link {
+    font-family: "Raleway", sans-serif;
+    font-size: 22px;
+    transition: transform 0.3s;
+  }
 }
 
-nav .nav-link {
-  font-family: "Raleway", sans-serif;
-  font-size: 22px;
-  transition: transform 0.3s;
-}
 .nav-link:hover {
   transform: scale(1.01);
 }
@@ -21,4 +17,15 @@ nav .nav-link {
     var(--color-fondo),
     var(--color-terciario)
   );
+}
+
+@media (max-width: 768px) {
+  .navbar-collapse {
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+  }
+
+  nav {
+    height: auto;
+  }
 }
