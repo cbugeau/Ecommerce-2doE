@@ -60,7 +60,7 @@ const FormR = () => {
           nombreUsuario: formRegister.nombreUsuario,
           email: formRegister.email,
           contrasenia: formRegister.contrasenia,
-          rol: "usuario",
+          rol: "admin",
           login: false,
           status: "enable",
         };
@@ -76,6 +76,7 @@ const FormR = () => {
           checkForm: false,
         });
         alert("El usuario fue dado de alta correctamente.");
+        navigate;
       } else {
         alert("Las contraseñas no son iguales");
       }
