@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-/* import { useNavigate } from "react-router"; */
+import { useNavigate } from "react-router";
 
 const FormR = () => {
-  /*   const navigate = useNavigate(); */
+  const navigate = useNavigate();
   const [formRegister, setFormRegister] = useState({
     nombreUsuario: "",
     email: "",
@@ -60,7 +60,7 @@ const FormR = () => {
           nombreUsuario: formRegister.nombreUsuario,
           email: formRegister.email,
           contrasenia: formRegister.contrasenia,
-          rol: "admin",
+          rol: "usuario",
           login: false,
           status: "enable",
         };
@@ -98,7 +98,7 @@ const FormR = () => {
             <Form.Label>Nombre de Usuario (*)</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Nombre Usuario"
+              placeholder="Nombre usuario"
               name="nombreUsuario"
               value={formRegister.nombreUsuario}
               onChange={handleChangeRegisterForm}
@@ -110,7 +110,7 @@ const FormR = () => {
             <Form.Label>Email del Usuario (*)</Form.Label>
             <Form.Control
               type="email"
-              placeholder="Enter email"
+              placeholder="ejemplo@gmail.com"
               name="email"
               value={formRegister.email}
               onChange={handleChangeRegisterForm}
@@ -122,7 +122,7 @@ const FormR = () => {
             <Form.Label>Contraseña (*)</Form.Label>
             <Form.Control
               type="password"
-              placeholder="Password"
+              placeholder="Contraseña"
               name="contrasenia"
               value={formRegister.contrasenia}
               onChange={handleChangeRegisterForm}
@@ -133,7 +133,7 @@ const FormR = () => {
             <Form.Label>Repetir Contraseña (*)</Form.Label>
             <Form.Control
               type="password"
-              placeholder="Password"
+              placeholder="Contraseña"
               name="repContrasenia"
               value={formRegister.repContrasenia}
               onChange={handleChangeRegisterForm}
@@ -155,11 +155,11 @@ const FormR = () => {
             controlId="formBasicButton1"
           >
             <Button
-              variant="primary"
+              variant="success"
               type="submit"
               onClick={handleClickRegisterForm}
             >
-              Grabar
+              Registrarse
             </Button>
           </Form.Group>
         </Form>

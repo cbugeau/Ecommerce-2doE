@@ -54,7 +54,7 @@ const NavbarC = () => {
                   Inicio
                 </NavLink>
                 <NavLink className="nav-link" to="/admin">
-                  Admin
+                  Panel Admin
                 </NavLink>
                 <NavLink className="nav-link" to="/contact">
                   Contacto
