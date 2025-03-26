@@ -1,11 +1,7 @@
-import FormL from "../components/form/FormL"
-
+import FormL from "../components/form/FormL";
 
 const LoginPage = () => {
+  return <FormL />;
+};
 
-  return (
-    <FormL />
-  )
-}
-
-export default LoginPage
+export default LoginPage;

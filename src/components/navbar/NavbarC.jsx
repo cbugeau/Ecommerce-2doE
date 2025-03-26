@@ -41,7 +41,7 @@ const NavbarC = () => {
                 <NavLink className="nav-link" to="/Acerca-De-Nosotros">
                   Sobre Nosotros
                 </NavLink>
-                <NavLink className="nav-link" to="*">
+                <NavLink className="nav-link" to="/contact">
                   Contacto
                 </NavLink>
                 <NavLink className="nav-link" to="/user/cart">
@@ -50,14 +50,14 @@ const NavbarC = () => {
               </Nav>
             ) : usuarioLogueado && usuarioLogueado.rol === "admin" ? (
               <Nav className="ms-auto">
-                <NavLink className="nav-link" to="/admin">
+                <NavLink className="nav-link" to="/">
                   Inicio
                 </NavLink>
-                <NavLink className="nav-link" to="/admin/productos">
-                  Panel Usuario
+                <NavLink className="nav-link" to="/admin">
+                  Panel Admin
                 </NavLink>
-                <NavLink className="nav-link" to="/user">
-                  Vista Usuario
+                <NavLink className="nav-link" to="/contact">
+                  Contacto
                 </NavLink>
               </Nav>
             ) : (
@@ -68,7 +68,7 @@ const NavbarC = () => {
                 <NavLink className={"nav-link"} to="/Acerca-De-Nosotros">
                   Acerca de Nosotros
                 </NavLink>
-                <NavLink className={"nav-link"} to="*">
+                <NavLink className={"nav-link"} to="/contact">
                   Contacto
                 </NavLink>
               </Nav>

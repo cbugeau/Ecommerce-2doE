@@ -15,12 +15,12 @@ const Error404 = () => {
       </p>
       <div className="button-group">
         <Link to="/">
-          <Button variant="primary" className="me-1">
+          <Button variant="dark" className="me-1">
             Ir a Inicio
           </Button>
         </Link>
-        <Link to="/Contact">
-          <Button variant="secondary">Ir a Contacto</Button>
+        <Link to="/contact">
+          <Button variant="secondary">Contáctanos</Button>
         </Link>
       </div>
     </Container>

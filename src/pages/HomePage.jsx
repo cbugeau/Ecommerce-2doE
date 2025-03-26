@@ -1,5 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap";
-import CardC from "../components/card/CardC";
+import CardC from "../components/Card/CardC";
 import { useEffect, useState } from "react";
 import SidebarFilters from "../components/SidebarFilters/SidebarFilters";
 import { fetchApiDummy } from "../helpers/useApi";
@@ -8,8 +8,8 @@ import CarouselC from "../components/carousel/CarouselC";
 const HomePage = () => {
   const [productos, setProductos] = useState([]);
   const [buscar, setBuscar] = useState("");
-  const [cargando, setCargando] = useState(true); // Estado de carga
-  const [filtros, setFiltros] = useState([]); // Nuevo estado para filtros
+  const [cargando, setCargando] = useState(true);
+  const [filtros, setFiltros] = useState([]);
 
   const obtenerProductos = async () => {
     try {
@@ -84,7 +84,9 @@ const HomePage = () => {
                   </Col>
                 ))
               ) : (
-                <p className="mt-3 text-center">No se encontraron productos.</p>
+                <h2 className="mt-3 text-center">
+                  No se encontraron productos.
+                </h2>
               )}
             </Row>
           </Col>
