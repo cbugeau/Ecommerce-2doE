@@ -1,0 +1,28 @@
+table td {
+  background-color: transparent;
+  box-shadow: none !important;
+  transition: transform 0.3s;
+}
+
+th {
+  background-color: var(--color-terciario) !important;
+  font-family: "Raleway", sans-serif;
+}
+
+td,
+th {
+  text-align: center; /* Centra el contenido en las celdas */
+  vertical-align: middle; /* Asegura que el contenido esté centrado verticalmente */
+}
+
+td img {
+  transition: transform 0.3s;
+}
+
+td img:hover {
+  transform: scale(1.4);
+}
+
+td input {
+  width: 100% !important;
+}
