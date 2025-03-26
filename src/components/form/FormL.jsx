@@ -53,7 +53,7 @@ const FormL = () => {
         }, 1000);
       } else {
         setTimeout(() => {
-          navigate("/login");
+          navigate("/admin");
         }, 1000);
       }
     } else {
