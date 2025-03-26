@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 
 const DetalleProducto = () => {
   const { id } = useParams();
-  /* const navigate = useNavigate(); */
+  const navigate = useNavigate();
   const [producto, setProducto] = useState(null);
   const [cargandoProducto, setCargandoProducto] = useState(true);
   const [imagenPrincipal, setImagenPrincipal] = useState("");
