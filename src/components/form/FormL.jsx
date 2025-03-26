@@ -81,7 +81,7 @@ const FormL = () => {
             <Form.Label>Contraseña</Form.Label>
             <Form.Control
               type="password"
-              placeholder="Password"
+              placeholder="Contraseña"
               name="contrasenia"
               value={formLogin.contrasenia}
               onChange={handleChangeLoginForm1}
@@ -93,7 +93,7 @@ const FormL = () => {
             controlId="formBasicPassword1"
           >
             <Button
-              variant="primary"
+              variant="success"
               type="submit"
               onClick={handleChangeLoginForm2}
             >
