@@ -6,6 +6,7 @@ import { useParams, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
 const DetalleProducto = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   /* const navigate = useNavigate(); */
   const [producto, setProducto] = useState(null);
@@ -61,6 +62,33 @@ const DetalleProducto = () => {
   };
 
   const agregarAlCarrito = () => {
+    const usuarioLogueado = JSON.parse(
+      sessionStorage.getItem("usuarioLogueado")
+    );
+    const carritoLs = JSON.parse(localStorage.getItem("carrito")) || [];
+    const productoExiste = carritoLs.find((prod) => prod.id === producto.id);
+
+    if (!usuarioLogueado) {
+      Swal.fire({
+        icon: "info",
+        title: "Debes iniciar sesion para poder comprar",
+      });
+
+      navigate("/login");
+
+      return;
+    }
+
+    if (productoExiste) {
+      Swal.fire({
+        icon: "error",
+        title: "Este producto ya está cargado en el carrito",
+        text: "Dirígete al carrito para modificar la cantidad de productos para llevar",
+      });
+      return;
+    }
+
+    carritoLs.push(producto);
     Swal.fire({
       title: "Producto agregado",
       text: "El producto se añadió al carrito.",
@@ -68,6 +96,7 @@ const DetalleProducto = () => {
       showConfirmButton: false,
       timer: 2000,
     });
+    localStorage.setItem("carrito", JSON.stringify(carritoLs));
   };
 
   const agregarAListaDeseos = () => {

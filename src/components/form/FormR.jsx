@@ -1,43 +1,44 @@
-import { useState } from 'react';
-import { Container } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import { useNavigate } from 'react-router';
+import { useState } from "react";
+import { Container } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+/* import { useNavigate } from "react-router"; */
 
 const FormR = () => {
-  const navigate = useNavigate()
+  /*   const navigate = useNavigate(); */
   const [formRegister, setFormRegister] = useState({
-    nombreUsuario: '',
-    email: '',
-    contrasenia: '',
-    repContrasenia: '',
-    checkForm: false
-  })
+    nombreUsuario: "",
+    email: "",
+    contrasenia: "",
+    repContrasenia: "",
+    checkForm: false,
+  });
 
-  const [errores, setErrores] = useState({})
+  const [errores, setErrores] = useState({});
 
   // -------------------- Handles --------------------
 
   const handleChangeRegisterForm = (ev) => {
-    const value = ev.target.type === 'checkbox' ? ev.target.checked : ev.target.value
-    setFormRegister({ ...formRegister, [ev.target.name]: value })
-  }
+    const value =
+      ev.target.type === "checkbox" ? ev.target.checked : ev.target.value;
+    setFormRegister({ ...formRegister, [ev.target.name]: value });
+  };
 
   const handleClickRegisterForm = (ev) => {
-    ev.preventDefault()
-    const usuarioLs = JSON.parse(localStorage.getItem('usuarios')) || []
+    ev.preventDefault();
+    const usuarioLs = JSON.parse(localStorage.getItem("usuarios")) || [];
 
     // Validaciones de los campos del Form
-    let nuevosErrores = {}
+    let nuevosErrores = {};
     if (!formRegister.nombreUsuario) {
-      nuevosErrores.nombreUsuario = 'El campo usuario esta vacio'
+      nuevosErrores.nombreUsuario = "El campo usuario esta vacio";
     }
 
     if (!formRegister.email) {
-      nuevosErrores.email = 'El campo email esta vacio'
+      nuevosErrores.email = "El campo email esta vacio";
     }
 
-    setErrores(nuevosErrores)
+    setErrores(nuevosErrores);
 
     // Mascara para campo eMail
     const maskEmail = new RegExp(
@@ -45,34 +46,39 @@ const FormR = () => {
     ).test(formRegister.email);
     //console.log("Filtro email: ", maskEmail);
 
-    if (formRegister.nombreUsuario && formRegister.email && formRegister.contrasenia && formRegister.repContrasenia && formRegister.checkForm && maskEmail) {
+    if (
+      formRegister.nombreUsuario &&
+      formRegister.email &&
+      formRegister.contrasenia &&
+      formRegister.repContrasenia &&
+      formRegister.checkForm &&
+      maskEmail
+    ) {
       if (formRegister.contrasenia === formRegister.repContrasenia) {
         const nuevoUsuario = {
           id: usuarioLs[usuarioLs.length - 1]?.id + 1 || 1,
           nombreUsuario: formRegister.nombreUsuario,
           email: formRegister.email,
           contrasenia: formRegister.contrasenia,
-          rol: 'usuario',
+          rol: "usuario",
           login: false,
-          status: 'enable'
-        }
+          status: "enable",
+        };
 
-        usuarioLs.push(nuevoUsuario)
-        localStorage.setItem('usuarios', JSON.stringify(usuarioLs))
+        usuarioLs.push(nuevoUsuario);
+        localStorage.setItem("usuarios", JSON.stringify(usuarioLs));
 
         setFormRegister({
-          nombreUsuario: '',
-          email: '',
-          contrasenia: '',
-          repContrasenia: '',
-          checkForm: false
-        })
+          nombreUsuario: "",
+          email: "",
+          contrasenia: "",
+          repContrasenia: "",
+          checkForm: false,
+        });
         alert("El usuario fue dado de alta correctamente.");
-        
       } else {
-        alert('Las contraseñas no son iguales')
+        alert("Las contraseñas no son iguales");
       }
-
     } else {
       if (!maskEmail) {
         alert("El campo eMail no tiene un formato válido");
@@ -80,8 +86,7 @@ const FormR = () => {
         alert("Falta completar algun campo del Formulario");
       }
     }
-  }
-
+  };
 
   return (
     <>
@@ -160,6 +165,6 @@ const FormR = () => {
       </Container>
     </>
   );
-}
+};
 
 export default FormR;

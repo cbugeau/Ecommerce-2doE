@@ -3,6 +3,7 @@ import "./NavbarC.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import logo from "/src/assets/imagenes/logo-ecommerce.png";
 
 const NavbarC = () => {
   const navigate = useNavigate();
@@ -28,11 +29,7 @@ const NavbarC = () => {
       <Navbar expand="lg" className="bg-navbar">
         <Container>
           <NavLink className="nav-link" to={usuarioLogueado ? "/user" : "/"}>
-            <img
-              src="/src/assets/imagenes/logo-ecommerce.png"
-              alt="img-logo"
-              width="60"
-            />
+            <img src={logo} alt="img-logo" width="60" />
           </NavLink>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -46,6 +43,9 @@ const NavbarC = () => {
                 </NavLink>
                 <NavLink className="nav-link" to="*">
                   Contacto
+                </NavLink>
+                <NavLink className="nav-link" to="/user/cart">
+                  Carrito
                 </NavLink>
               </Nav>
             ) : usuarioLogueado && usuarioLogueado.rol === "admin" ? (

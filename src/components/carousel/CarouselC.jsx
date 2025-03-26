@@ -1,6 +1,9 @@
 import { Carousel } from "react-bootstrap";
 import "./CarouselC.css";
 import { RiArrowLeftWideFill, RiArrowRightWideLine } from "react-icons/ri";
+import img1 from "../../assets/imagenes/carousel1.webp";
+import img2 from "../../assets/imagenes/carousel2.webp";
+import img3 from "../../assets/imagenes/carousel3.webp";
 
 const CarouselC = () => {
   return (
@@ -22,17 +25,17 @@ const CarouselC = () => {
     >
       <Carousel.Item className="img-carousel">
         <div className="carousel-image-container">
-          <img src="/src/assets/imagenes/carousel/img.1.webp" alt="imagen 1" />
+          <img src={img1} alt="imagen 1" />
         </div>
       </Carousel.Item>
       <Carousel.Item className="img-carousel">
         <div className="carousel-image-container">
-          <img src="/src/assets/imagenes/carousel/img-2.webp" alt="imagen 2" />
+          <img src={img2} alt="imagen 2" />
         </div>
       </Carousel.Item>
       <Carousel.Item className="img-carousel">
         <div className="carousel-image-container">
-          <img src="/src/assets/imagenes/carousel/img-3.webp" alt="imagen 3" />
+          <img src={img3} alt="imagen 3" />
         </div>
       </Carousel.Item>
     </Carousel>
