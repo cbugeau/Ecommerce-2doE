@@ -41,7 +41,7 @@ const NavbarC = () => {
                 <NavLink className="nav-link" to="/Acerca-De-Nosotros">
                   Sobre Nosotros
                 </NavLink>
-                <NavLink className="nav-link" to="*">
+                <NavLink className="nav-link" to="/contact">
                   Contacto
                 </NavLink>
                 <NavLink className="nav-link" to="/user/cart">
@@ -68,7 +68,7 @@ const NavbarC = () => {
                 <NavLink className={"nav-link"} to="/Acerca-De-Nosotros">
                   Acerca de Nosotros
                 </NavLink>
-                <NavLink className={"nav-link"} to="*">
+                <NavLink className={"nav-link"} to="/contact">
                   Contacto
                 </NavLink>
               </Nav>
