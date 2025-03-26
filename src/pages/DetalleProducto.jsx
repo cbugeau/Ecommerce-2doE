@@ -2,14 +2,18 @@ import React, { useState, useEffect } from "react";
 import { Button, Col, Container, Row, Modal } from "react-bootstrap";
 import { FaWhatsapp, FaInstagram, FaShareAlt } from "react-icons/fa";
 import "./DetalleProducto.css";
-import { useParams } from "react-router";
+import { useParams, useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 const DetalleProducto = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
+  /* const navigate = useNavigate(); */
   const [producto, setProducto] = useState(null);
   const [cargandoProducto, setCargandoProducto] = useState(true);
   const [imagenPrincipal, setImagenPrincipal] = useState("");
   const [mostrarModal, setMostrarModal] = useState(false);
+  const [cantidad, setCantidad] = useState(1);
 
   useEffect(() => {
     const obtenerProducto = async () => {
@@ -37,9 +41,76 @@ const DetalleProducto = () => {
       <p className="text-center mt-4 text-danger">Producto no encontrado.</p>
     );
   }
+  const aumentarCantidad = () => {
+    if (cantidad < producto.stock) {
+      setCantidad(cantidad + 1);
+    } else {
+      Swal.fire({
+        title: "Stock insuficiente",
+        text: "No puedes agregar más de lo disponible en stock.",
+        icon: "warning",
+        timer: 2000,
+        showConfirmButton: false,
+      });
+    }
+  };
+
+  const disminuirCantidad = () => {
+    if (cantidad > 1) {
+      setCantidad(cantidad - 1);
+    }
+  };
+
+  const agregarAlCarrito = () => {
+    const usuarioLogueado = JSON.parse(
+      sessionStorage.getItem("usuarioLogueado")
+    );
+    const carritoLs = JSON.parse(localStorage.getItem("carrito")) || [];
+    const productoExiste = carritoLs.find((prod) => prod.id === producto.id);
+
+    if (!usuarioLogueado) {
+      Swal.fire({
+        icon: "info",
+        title: "Debes iniciar sesion para poder comprar",
+      });
+
+      navigate("/login");
+
+      return;
+    }
+
+    if (productoExiste) {
+      Swal.fire({
+        icon: "error",
+        title: "Este producto ya está cargado en el carrito",
+        text: "Dirígete al carrito para modificar la cantidad de productos para llevar",
+      });
+      return;
+    }
+
+    carritoLs.push(producto);
+    Swal.fire({
+      title: "Producto agregado",
+      text: "El producto se añadió al carrito.",
+      icon: "success",
+      showConfirmButton: false,
+      timer: 2000,
+    });
+    localStorage.setItem("carrito", JSON.stringify(carritoLs));
+  };
+
+  const agregarAListaDeseos = () => {
+    Swal.fire({
+      title: "Añadido a Favoritos",
+      text: "El producto se añadió a tu lista de deseos.",
+      icon: "info",
+      showConfirmButton: false,
+      timer: 2000,
+    });
+  };
 
   return (
-    <Container className="mt-4 card-container">
+    <Container className="my-4 card-container">
       <Row>
         <Col md="6">
           <Row>
@@ -100,7 +171,7 @@ const DetalleProducto = () => {
 
           <p>{producto.description?.substring(0, 100)}...</p>
           <Button
-            variant="outline-secondary"
+            variant="dark"
             className="p-0"
             onClick={() => setMostrarModal(true)}
           >
@@ -109,20 +180,26 @@ const DetalleProducto = () => {
 
           <div className="mt-3 cantidad">
             <h6>Cantidad:</h6>
-            <Button variant="outline-dark" size="sm">
+            <Button
+              variant="outline-dark"
+              size="sm"
+              onClick={disminuirCantidad}
+            >
               -
             </Button>
-            <span className="mx-2">1</span>
-            <Button variant="outline-dark" size="sm">
+            <span className="mx-2">{cantidad}</span>
+            <Button variant="outline-dark" size="sm" onClick={aumentarCantidad}>
               +
             </Button>
           </div>
 
           <div className="mt-4 botones">
-            <Button variant="dark" className="me-2">
+            <Button variant="dark" className="me-2" onClick={agregarAlCarrito}>
               Agregar al Carrito
             </Button>
-            <Button variant="outline-secondary">Lista de Deseos</Button>
+            <Button variant="secondary" onClick={agregarAListaDeseos}>
+              Lista de Deseos
+            </Button>
           </div>
         </Col>
       </Row>

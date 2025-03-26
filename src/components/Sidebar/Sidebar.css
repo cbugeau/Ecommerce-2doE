@@ -1,5 +1,13 @@
-.bg-custom {
-  background-color: #3d5a80;
-  width: 250px;
-  min-width: 180px;
+.sidebar {
+  background-color: #3d5a80; /* Color de fondo */
+  color: white; /* Color del texto */
+  font-family: "Roboto", sans-serif; /* Fuente de Google */
+}
+
+.sidebar a {
+  color: white; /* Color de los enlaces */
+}
+
+.sidebar a:hover {
+  color: #f0f0f0; /* Color de los enlaces al pasar el mouse */
 }
