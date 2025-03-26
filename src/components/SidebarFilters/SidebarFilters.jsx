@@ -1,9 +1,25 @@
-import { Accordion, Button, Form } from "react-bootstrap";
+import { Accordion, Form } from "react-bootstrap";
 import "./SidebarFilters.css";
 
-const SidebarFilters = ({ buscar, setBuscar }) => {
+const SidebarFilters = ({
+  buscar,
+  setBuscar,
+  categorias,
+  filtros,
+  setFiltros,
+}) => {
+  const handleCheckboxChange = (categoria) => {
+    setFiltros(
+      (prevFiltros) =>
+        prevFiltros.includes(categoria)
+          ? prevFiltros.filter((filtro) => filtro !== categoria) // Quitar si ya está
+          : [...prevFiltros, categoria] // Agregar si no está
+    );
+  };
+
   return (
     <div className="mb-5 search">
+      {/* Input de búsqueda */}
       <div className="mb-3">
         <Form.Control
           type="text"
@@ -14,34 +30,25 @@ const SidebarFilters = ({ buscar, setBuscar }) => {
         />
       </div>
 
+      {/* Filtros de categorías */}
       <Accordion defaultActiveKey="0" alwaysOpen>
         <Accordion.Item eventKey="0">
-          <Accordion.Header>Categorias</Accordion.Header>
+          <Accordion.Header>Categorías</Accordion.Header>
           <Accordion.Body>
-            <Form.Check type="checkbox" label="1" />
-            <Form.Check type="checkbox" label="2" />
-            <Form.Check type="checkbox" label="3" />
-            <Form.Check type="checkbox" label="4" />
-          </Accordion.Body>
-        </Accordion.Item>
-
-        <Accordion.Item eventKey="1">
-          <Accordion.Header>Marcas</Accordion.Header>
-          <Accordion.Body>
-            <Form.Check type="checkbox" label="1" />
-            <Form.Check type="checkbox" label="2" />
-            <Form.Check type="checkbox" label="3" />
-            <Form.Check type="checkbox" label="4" />
-          </Accordion.Body>
-        </Accordion.Item>
-
-        <Accordion.Item eventKey="2">
-          <Accordion.Header>Etiquetas</Accordion.Header>
-          <Accordion.Body>
-            <Form.Check type="checkbox" label="1" />
-            <Form.Check type="checkbox" label="2" />
-            <Form.Check type="checkbox" label="3" />
-            <Form.Check type="checkbox" label="4" />
+            {categorias.length > 0 ? (
+              categorias.map((categoria, index) => (
+                <Form.Check
+                  key={index}
+                  type="checkbox"
+                  label={categoria}
+                  checked={filtros.includes(categoria)}
+                  onChange={() => handleCheckboxChange(categoria)}
+                  className="py-2 box"
+                />
+              ))
+            ) : (
+              <p>No hay categorías disponibles</p>
+            )}
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
