@@ -48,7 +48,7 @@ const NavbarC = () => {
               </Nav>
             ) : (
               <Nav className="ms-auto">
-                <NavLink className={"nav-link"} to="/">nicio</NavLink>
+                <NavLink className={"nav-link"} to="/">Inicio</NavLink>
                 <NavLink className={"nav-link"} to="/Acerca-De-Nosotros">Acerca de Nosotros</NavLink>
                 <NavLink className={"nav-link"} to="/contact">Contacto</NavLink>
               </Nav>
