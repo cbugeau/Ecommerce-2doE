@@ -5,6 +5,6 @@ export const fetchApiDummy = async (idDummyjson) => {
       : "https://dummyjson.com/products"
   );
   const data = await productos.json();
-  console.log(data);
+  //console.log(data);
   return data;
 };
