@@ -35,58 +35,32 @@ const NavbarC = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             {usuarioLogueado && usuarioLogueado.rol === "usuario" ? (
               <Nav className="ms-auto">
-                <NavLink className="nav-link" to="/user">
-                  Inicio
-                </NavLink>
-                <NavLink className="nav-link" to="/Acerca-De-Nosotros">
-                  Sobre Nosotros
-                </NavLink>
-                <NavLink className="nav-link" to="/contact">
-                  Contacto
-                </NavLink>
-                <NavLink className="nav-link" to="/user/cart">
-                  Carrito
-                </NavLink>
+                <NavLink className="nav-link" to="/user">Inicio</NavLink>
+                <NavLink className="nav-link" to="/Acerca-De-Nosotros">Sobre Nosotros</NavLink>
+                <NavLink className="nav-link" to="/contact">Contacto</NavLink>
+                <NavLink className="nav-link" to="/user/cart">Carrito</NavLink>
               </Nav>
             ) : usuarioLogueado && usuarioLogueado.rol === "admin" ? (
               <Nav className="ms-auto">
-                <NavLink className="nav-link" to="/">
-                  Inicio
-                </NavLink>
-                <NavLink className="nav-link" to="/admin">
-                  Panel Admin
-                </NavLink>
-                <NavLink className="nav-link" to="/contact">
-                  Contacto
-                </NavLink>
+                <NavLink className="nav-link" to="/">Inicio</NavLink>
+                <NavLink className="nav-link" to="/admin">Panel Admin</NavLink>
+                <NavLink className="nav-link" to="/contact">Contacto</NavLink>
               </Nav>
             ) : (
               <Nav className="ms-auto">
-                <NavLink className={"nav-link"} to="/">
-                  Inicio
-                </NavLink>
-                <NavLink className={"nav-link"} to="/Acerca-De-Nosotros">
-                  Acerca de Nosotros
-                </NavLink>
-                <NavLink className={"nav-link"} to="/contact">
-                  Contacto
-                </NavLink>
+                <NavLink className={"nav-link"} to="/">nicio</NavLink>
+                <NavLink className={"nav-link"} to="/Acerca-De-Nosotros">Acerca de Nosotros</NavLink>
+                <NavLink className={"nav-link"} to="/contact">Contacto</NavLink>
               </Nav>
             )}
             {usuarioLogueado ? (
               <Nav className="ms-auto">
-                <NavLink className="nav-link" to="#" onClick={handleLogoutUser}>
-                  Cerrar Sesión
-                </NavLink>
+                <NavLink className="nav-link" to="#" onClick={handleLogoutUser}>Cerrar Sesión</NavLink>
               </Nav>
             ) : (
               <Nav className="ms-auto">
-                <NavLink className="nav-link" to="/login">
-                  Iniciar Sesión
-                </NavLink>
-                <NavLink className="nav-link" to="/register">
-                  Registrarse
-                </NavLink>
+                <NavLink className="nav-link" to="/login">Iniciar Sesión</NavLink>
+                <NavLink className="nav-link" to="/register">Registrarse</NavLink>
               </Nav>
             )}
           </Navbar.Collapse>
