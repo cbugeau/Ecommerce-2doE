@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 const FormL = () => {
   const navigate = useNavigate();
@@ -40,7 +41,12 @@ const FormL = () => {
     setErrores(nuevosErrores);
 
     if (!usuarioExiste) {
-      alert("El usuario y/o contraseña no son correctos.");
+      //alert("El usuario y/o contraseña no son correctos.");
+      Swal.fire({
+        title: "Login Incorrecto !!!",
+        html: "El usuario y/o contraseña no son correctos.",
+        icon: "warning",
+      });
     }
 
     if (usuarioExiste.contrasenia === formLogin.contrasenia) {
@@ -57,7 +63,12 @@ const FormL = () => {
         }, 1000);
       }
     } else {
-      alert("El usuario y/o contraseña no son correctos.");
+      //alert("El usuario y/o contraseña no son correctos.");
+      Swal.fire({
+        title: "Login Incorrecto !!!",
+        html: "El usuario y/o contraseña no son correctos.",
+        icon: "info",
+      });
     }
   };
 
