@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 const DetalleProducto = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  /* const navigate = useNavigate(); */
+  const navigate = useNavigate();
   const [producto, setProducto] = useState(null);
   const [cargandoProducto, setCargandoProducto] = useState(true);
   const [imagenPrincipal, setImagenPrincipal] = useState("");
@@ -114,7 +114,7 @@ const DetalleProducto = () => {
       <Row>
         <Col md="6">
           <Row>
-            <Col xs="3" className="d-flex flex-column align-items-center">
+            <Col xs="2" className="d-flex flex-column align-items-center">
               {producto.images?.slice(0, 3).map((img, index) => (
                 <img
                   key={index}
@@ -149,8 +149,8 @@ const DetalleProducto = () => {
           </div>
         </Col>
 
-        <Col md="6" className="info-producto">
-          <h2 className="titulo-producto">{producto.title}</h2>
+        <Col md="6">
+          <h2 className="mt-2 fw-bold titulo-producto">{producto.title}</h2>
           <h5 className="categoria">Categoría: {producto.category}</h5>
           <h4 className="precio">${producto.price}</h4>
           <h6 className={producto.stock > 0 ? "stock" : "agotado"}>
@@ -172,7 +172,7 @@ const DetalleProducto = () => {
           <p>{producto.description?.substring(0, 100)}...</p>
           <Button
             variant="dark"
-            className="p-0"
+            className="p-1"
             onClick={() => setMostrarModal(true)}
           >
             Ver más
