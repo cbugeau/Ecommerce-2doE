@@ -6,7 +6,6 @@ import { useParams, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
 const DetalleProducto = () => {
-  const navigate = useNavigate();
   const { id } = useParams();
   const navigate = useNavigate();
   const [producto, setProducto] = useState(null);
