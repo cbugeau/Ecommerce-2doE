@@ -55,6 +55,8 @@ const TableProductsUser = () => {
       confirmButtonText: "Volver al inicio",
     }).then((result) => {
       if (result.isConfirmed) {
+        setCarrito([]);
+        localStorage.setItem("carrito", JSON.stringify([]));
         navigate("/user");
       }
     });
