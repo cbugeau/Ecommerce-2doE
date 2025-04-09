@@ -1,5 +1,7 @@
 import { Accordion, Form } from "react-bootstrap";
 import "./SidebarFilters.css";
+import publicidad1 from "../../assets/imagenes/publicidad-calvin-klein.webp";
+import publicidad2 from "../../assets/imagenes/publicidad-muebles.webp";
 
 const SidebarFilters = ({
   buscar,
@@ -52,6 +54,16 @@ const SidebarFilters = ({
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
+      <img
+        src={publicidad1}
+        alt="publicidad de calvin klein"
+        className="pt-3"
+      />
+      <img
+        src={publicidad2}
+        alt="publicidad de calvin klein"
+        className="pt-3"
+      />
     </div>
   );
 };
