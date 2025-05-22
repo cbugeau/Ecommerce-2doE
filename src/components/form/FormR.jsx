@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 const FormR = () => {
   const navigate = useNavigate();
@@ -75,16 +76,36 @@ const FormR = () => {
           repContrasenia: "",
           checkForm: false,
         });
-        alert("El usuario fue dado de alta correctamente.");
+        //alert("El usuario fue dado de alta correctamente.");
+        Swal.fire({
+          title: "Registro Existoso !!!",
+          html: "El usuario fue dado de alta correctamente.",
+          icon: "success",
+        });
         navigate;
       } else {
-        alert("Las contraseñas no son iguales");
+        //alert("Las contraseñas no son iguales");
+        Swal.fire({
+          title: "Registro Incorrecto !!!",
+          html: "Las contraseñas no son iguales.",
+          icon: "error",
+        });
       }
     } else {
       if (!maskEmail) {
-        alert("El campo eMail no tiene un formato válido");
+        //alert("El campo eMail no tiene un formato válido");
+        Swal.fire({
+          title: "Registro Incorrecto !!!",
+          html: "El campo eMail no tiene un formato válido.",
+          icon: "error",
+        });
       } else {
-        alert("Falta completar algun campo del Formulario");
+        //alert("Falta completar algun campo del Formulario");
+        Swal.fire({
+          title: "Registro Incorrecto !!!",
+          html: "Falta completar algun campo del Formulario.",
+          icon: "error",
+        });
       }
     }
   };

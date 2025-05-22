@@ -3,8 +3,7 @@ import { useEffect } from "react";
 
 const PrivateRoute = ({ children, rol }) => {
   const navigate = useNavigate();
-  const usuarioLogeado =
-    JSON.parse(sessionStorage.getItem("usuarioLogueado")) || null;
+  const usuarioLogeado = JSON.parse(sessionStorage.getItem("usuarioLogueado")) || null;
 
   useEffect(() => {
     // Si no hay usuario logueado, redirigir al login

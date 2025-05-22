@@ -11,6 +11,14 @@ const HomePage = () => {
   const [cargando, setCargando] = useState(true);
   const [filtros, setFiltros] = useState([]);
 
+  const categoriasDisponibles = [
+    "beauty",
+    "fragrances",
+    "furniture",
+    "groceries",
+  ];
+  const categorias = categoriasDisponibles;
+
   const obtenerProductos = async () => {
     try {
       const productosLs = JSON.parse(localStorage.getItem("productos")) || [];
@@ -43,8 +51,6 @@ const HomePage = () => {
       filtros.length === 0 || filtros.includes(producto.category);
     return coincideBusqueda && coincideCategoria;
   });
-
-  const categorias = [...new Set(productos.map((p) => p.category))];
 
   return (
     <>

@@ -23,7 +23,7 @@ const ProductosAdminPage = () => {
         const productosLs = JSON.parse(
           localStorage.getItem("productos") || "[]"
         );
-        setProductos(productosLs.slice(0, 12)); // Solo carga los primeros 12 productos
+        setProductos(productosLs);
         uniqueCategories(productosLs);
       } catch (error) {
         console.log("Error al cargar productos:", error);
@@ -42,6 +42,10 @@ const ProductosAdminPage = () => {
     const categorys = [...new Set(productos.map((p) => p.category))];
     setCategories(categorys);
   };
+
+  useEffect(() => {
+    uniqueCategories(productos);
+  }, [productos]);
 
   const handleOpenModal = (product = null) => {
     if (product) {
@@ -137,7 +141,7 @@ const ProductosAdminPage = () => {
           {/* Tabla de productos */}
           <div className="w-100">
             <ProductTable
-              products={productos}
+              products={productos.slice(0, 12)} // Mostramos solo 12
               onEdit={handleEdit}
               onDelete={handleDelete}
             />
